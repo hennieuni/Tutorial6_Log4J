@@ -30,14 +30,14 @@ public class MergeTransactions {
 
 	public static void main(String[] args) {
 		List<Purchase> transactions = new ArrayList<Purchase>();
-		
+		BasicConfigurator.configure();
 		// read data from 4 files
 		readData("transactions1.csv",transactions);
 		readData("transactions2.csv",transactions);
 		readData("transactions3.csv",transactions);
 		readData("transactions4.csv",transactions);
 
-		BasicConfigurator.configure();
+
 		Logger TRANSACTION = Logger.getLogger("TRANSACTION");
 		
 		// print some info for the user
@@ -72,7 +72,6 @@ public class MergeTransactions {
 	// read transactions from a file, and add them to a list
 	private static void readData(String fileName, List<Purchase> transactions) {
 
-		BasicConfigurator.configure();
 
 		
 		File file = new File(fileName);
