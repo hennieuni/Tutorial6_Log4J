@@ -1,0 +1,25 @@
+5 [main] INFO FILE - import data from transactions1.csv
+40 [main] DEBUG FILE - imported transaction Purchase [retailer=Pack and Save, amount=188.0, date=Sun Jun 03 00:00:00 NZST 2018]
+40 [main] DEBUG FILE - imported transaction Purchase [retailer=Harvey Norman, amount=20.0, date=Tue Jun 12 00:00:00 NZST 2018]
+42 [main] DEBUG FILE - imported transaction Purchase [retailer=BP, amount=90.0, date=Fri Jun 15 00:00:00 NZST 2018]
+42 [main] INFO FILE - import data from transactions2.csv
+47 [main] DEBUG FILE - imported transaction Purchase [retailer=Pack and Save, amount=230.0, date=Tue May 01 00:00:00 NZST 2018]
+47 [main] DEBUG FILE - imported transaction Purchase [retailer=Briscoes, amount=10.0, date=Thu May 03 00:00:00 NZST 2018]
+52 [main] DEBUG FILE - imported transaction Purchase [retailer=Warehouse, amount=20.0, date=Fri May 04 00:00:00 NZST 2018]
+52 [main] DEBUG FILE - imported transaction Purchase [retailer=Pack and Save, amount=240.0, date=Sun May 06 00:00:00 NZST 2018]
+52 [main] INFO FILE - import data from transactions3.csv
+58 [main] DEBUG FILE - imported transaction Purchase [retailer=Wet Pets, amount=42.0, date=Sun May 13 00:00:00 NZST 2018]
+59 [main] ERROR FILE - cannot parse date from string - please check whether syntax is correct: Animates,4,13/5/2018
+java.text.ParseException: Unparseable date: "13/5/2018"
+	at java.base/java.text.DateFormat.parse(DateFormat.java:399)
+	at nz.ac.vuw.swen301.tuts.log4j.MergeTransactions.readData(MergeTransactions.java:104)
+	at nz.ac.vuw.swen301.tuts.log4j.MergeTransactions.main(MergeTransactions.java:50)
+61 [main] INFO FILE - import data from transactions4.csv
+66 [main] WARN FILE - file transactions4.csv does not exist - skip
+java.io.FileNotFoundException: transactions4.csv (The system cannot find the file specified)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:216)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.io.FileReader.<init>(FileReader.java:75)
+	at nz.ac.vuw.swen301.tuts.log4j.MergeTransactions.readData(MergeTransactions.java:98)
+	at nz.ac.vuw.swen301.tuts.log4j.MergeTransactions.main(MergeTransactions.java:51)

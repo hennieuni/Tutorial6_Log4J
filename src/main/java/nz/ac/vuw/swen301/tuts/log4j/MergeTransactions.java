@@ -1,5 +1,6 @@
 package nz.ac.vuw.swen301.tuts.log4j;
 
+import org.apache.log4j.Appender;
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
 
@@ -31,6 +32,18 @@ public class MergeTransactions {
 	public static void main(String[] args) {
 		List<Purchase> transactions = new ArrayList<Purchase>();
 		BasicConfigurator.configure();
+		Logger rootlogger = Logger.getRootLogger();
+		Appender appender = (Appender) rootlogger.getAllAppenders().nextElement();
+		appender.setLayout(new org.apache.log4j.SimpleLayout());
+
+		try {
+			FILE.addAppender(new org.apache.log4j.FileAppender(
+					new org.apache.log4j.TTCCLayout(),"logs.txt"
+			));
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
+
 		// read data from 4 files
 		readData("transactions1.csv",transactions);
 		readData("transactions2.csv",transactions);
@@ -39,6 +52,7 @@ public class MergeTransactions {
 
 
 		Logger TRANSACTION = Logger.getLogger("TRANSACTION");
+
 		
 		// print some info for the user
 		TRANSACTION.info("" + transactions.size() + " transactions imported");
